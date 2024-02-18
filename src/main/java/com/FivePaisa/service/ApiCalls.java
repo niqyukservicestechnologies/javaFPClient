@@ -34,6 +34,7 @@ public class ApiCalls {
 	final String JWT_TOKEN = "JwtToken";
 
 	JSONParser parser = new JSONParser();
+
 	// Properties properties = new Properties();
 
 	public String callCheckLogin(JSONObject reqbody, String suburl, String rc, AppConfig config)
@@ -231,4 +232,7 @@ public class ApiCalls {
 		return requestBody;
 	}
 
+	public void setJwtToken(String jwtToken) {
+		this.jwtToken = jwtToken;
+	}
 }

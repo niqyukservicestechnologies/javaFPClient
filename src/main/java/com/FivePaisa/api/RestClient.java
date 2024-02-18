@@ -100,4 +100,7 @@ public class RestClient {
 		return ac.callWithCookies(requestBody, netPositionNetWise, pr.netPositionNetWise, config);
 	}
 
+	public void setJWTToken(String jwtToken) {
+		this.ac.setJwtToken(jwtToken);
+	}	
 }
