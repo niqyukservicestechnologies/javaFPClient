@@ -102,5 +102,5 @@ public class RestClient {
 
 	public void setJWTToken(String jwtToken) {
 		this.ac.setJwtToken(jwtToken);
-	}	
+	}
 }

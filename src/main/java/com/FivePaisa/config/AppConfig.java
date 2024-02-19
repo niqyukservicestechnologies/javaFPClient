@@ -61,7 +61,7 @@ public class AppConfig {
 		this.osName = osName;
 	}
 
-	public String getLogiId() {
+	public String getLoginId() {
 		return loginId;
 	}
 

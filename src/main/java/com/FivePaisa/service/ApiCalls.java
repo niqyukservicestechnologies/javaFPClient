@@ -1,7 +1,5 @@
 package com.FivePaisa.service;
 
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import org.json.simple.JSONObject;
@@ -10,7 +8,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.FivePaisa.config.AppConfig;
-import com.FivePaisa.util.AES;
 import com.FivePaisa.util.ServerDetails;
 
 import okhttp3.Call;
@@ -220,7 +217,7 @@ public class ApiCalls {
 		requestHead.put("appVer", config.getAppVer());
 		requestHead.put("appName", config.getAppName());
 		requestHead.put("osName", config.getOsName());
-		requestHead.put("LoginId", config.getLogiId());
+		requestHead.put("LoginId", config.getLoginId());
 		// requestHead.put("password",pw);
 		return requestHead;
 	}
