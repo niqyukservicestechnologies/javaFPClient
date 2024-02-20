@@ -4,5 +4,11 @@ public enum APITypes {
 
     POSITIONS,
     HOLDINGS,
-    MARGIN
+    MARGIN,
+
+    SQUARE_OFF,
+
+    ORDER_BOOK,
+
+    TRADE_BOOK
 }

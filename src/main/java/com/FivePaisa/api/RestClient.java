@@ -17,9 +17,7 @@ public class RestClient {
     private String modifyOrderRequest = "ModifyOrderRequest";
     private String cancelOrderRequest = "CancelOrderRequest";
     private String orderStatus = "V2/OrderStatus";
-    private String tradeInformation = "TradeInformation";
     private String margin = "V4/Margin";
-    private String orderBook = "V3/OrderBook";
     private String smoOrderRequest = "SMOOrderRequest";
     private String modifySmoOrder = "5PSModMOOrd";
 
@@ -42,6 +40,18 @@ public class RestClient {
 
     public Response marginV3(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.MARGIN);
+    }
+
+    public Response squareOff(JSONObject requestBody) throws IOException {
+        return ac.callPOSTWithAccessToken(requestBody, APITypes.SQUARE_OFF);
+    }
+
+    public Response tradeBook(JSONObject requestBody) throws IOException {
+        return ac.callPOSTWithAccessToken(requestBody, APITypes.TRADE_BOOK);
+    }
+
+    public Response orderBook(JSONObject requestBody) throws IOException {
+        return ac.callPOSTWithAccessToken(requestBody, APITypes.ORDER_BOOK);
     }
 
     public Response smoOrderRequest(JSONObject requestBody) throws IOException, ParseException {
@@ -71,15 +81,6 @@ public class RestClient {
 
     public Response orderStatus(JSONObject requestBody) throws IOException, ParseException {
         return ac.callPOSTWithAccessToken(requestBody, orderStatus, pr.orderStatus, config);
-    }
-
-    public Response tradeInformation(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken(requestBody, tradeInformation, pr.tradeInformation, config);
-    }
-
-
-    public Response orderBookV2(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken(requestBody, orderBook, pr.orderBook, config);
     }
 
     public void setJWTToken(String jwtToken) {

@@ -51,6 +51,12 @@ public class NetworkUtils {
                 return "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V2/NetPositionNetWise";
             case MARGIN:
                 return "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V4/Margin";
+            case ORDER_BOOK:
+                return "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V3/OrderBook";
+            case SQUARE_OFF:
+                return "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/SquareOffAll";
+            case TRADE_BOOK:
+                return "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/TradeBook";
             default:
                 return "/";
         }
