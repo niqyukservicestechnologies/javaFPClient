@@ -43,6 +43,14 @@ public class RestClient {
         this.pr = properties;
     }
 
+    public Response holdingV2(JSONObject requestBody) throws IOException, ParseException {
+        return ac.callWithAccessToken(requestBody, APITypes.HOLDINGS);
+    }
+
+    public Response netPositionNetWiseV1(JSONObject requestBody) throws IOException, ParseException {
+        return ac.callWithAccessToken(requestBody, APITypes.POSITIONS);
+    }
+
     public String loginCheck(JSONObject requestBody) throws IOException, ParseException {
         return ac.callCheckLogin(requestBody, loginCheck, pr.requestCodeLoginCheck, config);
     }
@@ -71,9 +79,6 @@ public class RestClient {
         return ac.callWithAccessToken(requestBody, cancelOrderRequest, pr.orderRequest, config);
     }
 
-    public Response holdingV2(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, APITypes.HOLDINGS);
-    }
 
     public Response marketFeed(JSONObject requestBody) throws IOException, ParseException {
         return ac.callWithAccessToken((requestBody), marketFeed, pr.marketFeed, config);
@@ -93,10 +98,6 @@ public class RestClient {
 
     public Response orderBookV2(JSONObject requestBody) throws IOException, ParseException {
         return ac.callWithAccessToken(requestBody, orderBook, pr.orderBook, config);
-    }
-
-    public Response netPositionNetWiseV1(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, netPositionNetWise, pr.netPositionNetWise, config);
     }
 
     public void setJWTToken(String jwtToken) {
