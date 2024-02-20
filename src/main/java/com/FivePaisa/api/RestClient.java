@@ -6,14 +6,12 @@ import com.FivePaisa.service.ApiCalls;
 import com.FivePaisa.service.Properties;
 import okhttp3.Response;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
 public class RestClient {
 
-    private String holding = "V2/Holding";
     private String marketFeed = "MarketFeed";
     private String placeOrderRequest = "PlaceOrderRequest";
     private String modifyOrderRequest = "ModifyOrderRequest";
@@ -22,21 +20,12 @@ public class RestClient {
     private String tradeInformation = "TradeInformation";
     private String margin = "V4/Margin";
     private String orderBook = "V3/OrderBook";
-    private String netPositionNetWise = "V2/NetPositionNetWise";
     private String smoOrderRequest = "SMOOrderRequest";
     private String modifySmoOrder = "5PSModMOOrd";
-    private String loginCheck = "LoginCheck";
-    private String totpLogin = "TOTPLogin";
-    private String getAccessToken = "GetAccessToken";
 
-    JSONParser parser = new JSONParser();
     ApiCalls ac = new ApiCalls();
     Properties pr;
     AppConfig config;
-
-    // public RestClient(AppConfig config) {
-    // this(config, new Properties());
-    // }
 
     public RestClient(AppConfig config, Properties properties) {
         this.config = config;

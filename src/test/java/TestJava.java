@@ -40,31 +40,6 @@ public class TestJava {
     }
 
     @Test
-    public void LoginRequestV2() throws IOException, ParseException {
-        setConfig();
-        System.out.println(" \n ************* LoginRequestV2  ************* \n");
-        String resp = apis.getTotpSession("Your client code", "Your TOTP", "Your PIN");
-        System.out.println("\n Response >> " + resp);
-        // String jwtToken = "";
-        try {
-
-            JSONObject requestTokenObject = (JSONObject) JSONValue.parse(resp);
-            requestTokenObject = (JSONObject) requestTokenObject.get("body");
-            if ((Long) requestTokenObject.get("Status") == 0) {
-                jwtToken = (String) requestTokenObject.get("AccessToken");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            ;
-        }
-
-        // System.out.println("\n JSON OBJ >> " + obj2.toJSONString());
-        // Response response = apis.LoginRequestV2(obj2);
-        // System.out.println("\n Response >> " + response.body().string());
-        assertTrue(jwtToken.length() > 0);
-    }
-
-    @Test
     public void HoldingV2() throws IOException, ParseException {
         setConfig();
         System.out.println(" \n ************* HoldingV2  ************* \n");
