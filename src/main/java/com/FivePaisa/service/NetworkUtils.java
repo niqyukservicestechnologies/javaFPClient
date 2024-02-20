@@ -25,7 +25,7 @@ public class NetworkUtils {
             default -> throw new IllegalStateException("Unexpected value: " + verb);
         }).execute()) {
             System.out.println("HERE");
-            System.out.println("RESPONSE HERE - " + response.code() + " " + response.body().toString());
+            System.out.println("RESPONSE HERE - " + response.code() + " " + response.body().string());
             return response;
         }
     }
