@@ -51,20 +51,12 @@ public class RestClient {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.POSITIONS);
     }
 
-    public String loginCheck(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callCheckLogin(requestBody, loginCheck, pr.requestCodeLoginCheck, config);
-    }
-
     public Response smoOrderRequest(JSONObject requestBody) throws IOException, ParseException {
         return ac.callPOSTWithAccessToken(requestBody, smoOrderRequest, pr.requestCodeSmoOrderReq, config);
     }
 
     public Response modifySmoOrder(JSONObject requestBody) throws IOException, ParseException {
         return ac.callPOSTWithAccessToken(requestBody, modifySmoOrder, pr.requestCodeModifySmoOrder, config);
-    }
-
-    public String getTotpSession(String clientCode, String totp, String pin) throws IOException, ParseException {
-        return ac.getTotpSession(clientCode, totp, pin, totpLogin, getAccessToken, config, pr);
     }
 
     public Response placeOrderRequest(JSONObject requestBody) throws IOException, ParseException {
