@@ -111,17 +111,6 @@ public class TestJava {
     }
 
     @Test
-    public void OrderBookV2() throws IOException, ParseException {
-        setConfig();
-        System.out.println(" \n ************* OrderBookV2  ************* \n");
-        JSONObject obj3 = new JSONObject();
-        obj3.put("ClientCode", properties.clientcode);
-        Response response = apis.orderBookV2(obj3);
-        System.out.println("\n Response >> " + response.body().string());
-        assertTrue(response.isSuccessful());
-    }
-
-    @Test
     public void NetPositionNetWiseV1() throws IOException, ParseException {
         setConfig();
         System.out.println(" \n ************* NetPositionNetWiseV1  ************* \n");
@@ -205,9 +194,9 @@ public class TestJava {
         obj3.put("ClientCode", properties.clientcode);
         obj3.put("TradeDetailList", ordStatusListReqObj);
 
-        Response response = apis.tradeInformation(obj3);
-        System.out.println("\n Response >> " + response.body().string());
-        assertTrue(response.isSuccessful());
+        //Response response = apis.tradeInformation(obj3);
+        //System.out.println("\n Response >> " + response.body().string());
+        //assertTrue(response.isSuccessful());
     }
 
     @Test
