@@ -19,14 +19,13 @@ public class NetworkUtils {
         Request.Builder builder = new Request.Builder()
                 .url(fetchEndpoint(apiTypes))
                 .headers(headers);
-
-        if ("POST".equalsIgnoreCase(verb)) {
-            builder.post(body);
-        } else if ("GET".equalsIgnoreCase(verb)) {
-            builder.get();
-        } // Add more conditions for other HTTP verbs if needed
-        Request request = builder.build();
-        try (Response response = client.newCall(request).execute()) {
+        try (Response response = client.newCall(switch (verb) {
+            case "POST" -> builder.post(body).build();
+            case "GET" -> builder.get().build();
+            default -> throw new IllegalStateException("Unexpected value: " + verb);
+        }).execute()) {
+            System.out.println("HERE");
+            System.out.println("RESPONSE HERE - " + response.code() + " " + response.body().toString());
             return response;
         }
     }
@@ -39,6 +38,7 @@ public class NetworkUtils {
     }
 
     public static RequestBody generatePayload(JSONObject payload) {
+        System.out.println("\n Request >> " + payload.toJSONString());
         return RequestBody.create(payload.toJSONString(), JSON);
     }
 
