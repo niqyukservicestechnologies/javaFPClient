@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @UtilityClass
@@ -19,8 +20,8 @@ public class NetworkUtils {
 
     private static final OkHttpClient client = new OkHttpClient();
 
-    public static Response makeRequest(APITypes apiTypes, String verb, JSONObject requestBody,
-                                       String accessToken, Map<String, String> additionalHeaders) throws IOException {
+    public static String makeRequest(APITypes apiTypes, String verb, JSONObject requestBody,
+                                     String accessToken, Map<String, String> additionalHeaders) throws IOException {
         Request.Builder builder = new Request.Builder()
                 .url(fetchEndpoint(apiTypes))
                 .headers(getHeaders(accessToken, additionalHeaders));
@@ -30,7 +31,9 @@ public class NetworkUtils {
                     default -> throw new IllegalStateException("Unexpected value: " + verb);
                 }).build())
                 .execute()) {
-            return response;
+            if (!List.of(200,201,202).contains(response.code()))
+                throw new IOException("Bad");
+            return response.body().string();
         }
     }
 

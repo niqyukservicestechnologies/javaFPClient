@@ -122,12 +122,12 @@ public class ApiCalls {
         return requestBody;
     }
 
-    public Response callPOSTWithAccessToken(JSONObject requestBody, APITypes apiTypes) throws IOException {
+    public String callPOSTWithAccessToken(JSONObject requestBody, APITypes apiTypes) throws IOException {
         aLogger.info("Invoking Five Paisa API : {} ", apiTypes);
         return callWithAccessToken(requestBody, apiTypes, Collections.emptyMap(), "POST");
     }
 
-    public Response callWithAccessToken(JSONObject requestBody, APITypes apiTypes, Map<String, String> additionalHeaders, String httpVerb) throws IOException {
+    public String callWithAccessToken(JSONObject requestBody, APITypes apiTypes, Map<String, String> additionalHeaders, String httpVerb) throws IOException {
         return NetworkUtils.makeRequest(apiTypes, httpVerb, requestBody, this.jwtToken, additionalHeaders);
     }
 }

@@ -30,27 +30,27 @@ public class RestClient {
         this.pr = properties;
     }
 
-    public Response holdingV2(JSONObject requestBody) throws IOException {
+    public String holdingV2(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.HOLDINGS);
     }
 
-    public Response netPositionNetWiseV1(JSONObject requestBody) throws IOException {
+    public String netPositionNetWiseV1(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.POSITIONS);
     }
 
-    public Response marginV3(JSONObject requestBody) throws IOException {
+    public String marginV3(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.MARGIN);
     }
 
-    public Response squareOff(JSONObject requestBody) throws IOException {
+    public String squareOff(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.SQUARE_OFF);
     }
 
-    public Response tradeBook(JSONObject requestBody) throws IOException {
+    public String tradeBook(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.TRADE_BOOK);
     }
 
-    public Response orderBook(JSONObject requestBody) throws IOException {
+    public String orderBook(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.ORDER_BOOK);
     }
 

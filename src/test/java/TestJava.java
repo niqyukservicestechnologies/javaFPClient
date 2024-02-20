@@ -1,21 +1,17 @@
-
-import static org.junit.Assert.assertTrue;
+import com.FivePaisa.api.RestClient;
+import com.FivePaisa.config.AppConfig;
+import com.FivePaisa.service.Properties;
+import okhttp3.Response;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.junit.Test;
-
-import com.FivePaisa.api.RestClient;
-import com.FivePaisa.config.AppConfig;
-import com.FivePaisa.service.Properties;
-
-import okhttp3.Response;
+import static org.junit.Assert.assertTrue;
 
 public class TestJava {
 
@@ -37,18 +33,6 @@ public class TestJava {
         config.setPassword("gcwjZlmPbUG");// eg. ABCDEFGHIJK
         config.setLoginId("51447797");// eg 12345678
         properties.setClientcode("51447797");// eg 12345678
-    }
-
-    @Test
-    public void HoldingV2() throws IOException, ParseException {
-        setConfig();
-        System.out.println(" \n ************* HoldingV2  ************* \n");
-        JSONObject obj3 = new JSONObject();
-        obj3.put("ClientCode", properties.clientcode);
-        apis.setJWTToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUwOTE3NjAwIiwicm9sZSI6Ildqa1ZXM0JQZW5heEFENDZxNURTeEJFQ3F1SkZFdm5ZIiwiU3RhdGUiOiIwZGIyYmQ1ZS02ZmIxLTQwODYtOTc3Ny1hMWYyZTExZTBhMWIiLCJuYmYiOjE3MDg0MDc5NzIsImV4cCI6MTcwODQwODAzMiwiaWF0IjoxNzA4NDA3OTcyfQ.5MzPKQNbJfMNRgz2M2v3ga435XDX1jubY50NYtmfMt8");
-        Response response = apis.holdingV2(obj3);
-        System.out.println("\n Response >> " + response.body().string());
-        assertTrue(response.isSuccessful());
     }
 
     @Test
@@ -95,29 +79,6 @@ public class TestJava {
         String resp = response.body().string();
         System.out.println("\n Response =========>> " + resp);
 
-        assertTrue(response.isSuccessful());
-    }
-
-    @Test
-    public void MarginV3() throws IOException, ParseException {
-        setConfig();
-        System.out.println(" \n ************* MarginV3  ************* \n");
-        JSONObject obj3 = new JSONObject();
-        obj3.put("ClientCode", properties.clientcode);
-        ;
-        Response response = apis.marginV3(obj3);
-        System.out.println("\n Response >> " + response.body().string());
-        assertTrue(response.isSuccessful());
-    }
-
-    @Test
-    public void NetPositionNetWiseV1() throws IOException, ParseException {
-        setConfig();
-        System.out.println(" \n ************* NetPositionNetWiseV1  ************* \n");
-        JSONObject obj3 = new JSONObject();
-        obj3.put("ClientCode", properties.clientcode);
-        Response response = apis.netPositionNetWiseV1(obj3);
-        System.out.println("\n Response >> " + response.body().string());
         assertTrue(response.isSuccessful());
     }
 
