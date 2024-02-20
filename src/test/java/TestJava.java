@@ -28,16 +28,15 @@ public class TestJava {
 
     public void setConfig() {
 
-        config.setAppName("Your app name");// eg 5P12345678
+        config.setAppName("5P50917600");// eg 5P12345678
         config.setAppVer("1.0");
         config.setOsName("WEB");
-        config.setEncryptKey("Your encryption key"); // eg.ABCDEFGHIJKLMNOPQURSTUVWXYZANCDE
-        config.setKey("Your user key");// eg ABCDEFGHIJKLMNOPQURSTUVWXYZANCDEF
-        config.setUserId("Your user id");
-        config.setPassword("Your password");// eg. ABCDEFGHIJK
-        config.setLoginId("Your client code");// eg 12345678
-
-        properties.setClientcode("Your client Code");// eg 12345678
+        config.setEncryptKey("zmXOeiLBVvhCEYkcBdTZ2aTfsojPWvWa"); // eg.ABCDEFGHIJKLMNOPQURSTUVWXYZANCDE
+        config.setKey("WjkVW3BPenaxAD46q5DSxBECquJFEvnY");// eg ABCDEFGHIJKLMNOPQURSTUVWXYZANCDEF
+        config.setUserId("OipjgKOd03r");
+        config.setPassword("gcwjZlmPbUG");// eg. ABCDEFGHIJK
+        config.setLoginId("51447797");// eg 12345678
+        properties.setClientcode("51447797");// eg 12345678
     }
 
     @Test
@@ -71,6 +70,7 @@ public class TestJava {
         System.out.println(" \n ************* HoldingV2  ************* \n");
         JSONObject obj3 = new JSONObject();
         obj3.put("ClientCode", properties.clientcode);
+        apis.setJWTToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUwOTE3NjAwIiwicm9sZSI6Ildqa1ZXM0JQZW5heEFENDZxNURTeEJFQ3F1SkZFdm5ZIiwiU3RhdGUiOiIwZGIyYmQ1ZS02ZmIxLTQwODYtOTc3Ny1hMWYyZTExZTBhMWIiLCJuYmYiOjE3MDg0MDc5NzIsImV4cCI6MTcwODQwODAzMiwiaWF0IjoxNzA4NDA3OTcyfQ.5MzPKQNbJfMNRgz2M2v3ga435XDX1jubY50NYtmfMt8");
         Response response = apis.holdingV2(obj3);
         System.out.println("\n Response >> " + response.body().string());
         assertTrue(response.isSuccessful());
@@ -94,7 +94,7 @@ public class TestJava {
         obj3.put("AtMarket", false);
         obj3.put("RemoteOrderID", "s0002201907231019172");
         obj3.put("ExchOrderID", 0);
-        obj3.put("DisQty", 0);
+        obj3.put("DisQty", 1);
         obj3.put("IsStopLossOrder", false);
         obj3.put("StopLossPrice", 0);
         obj3.put("IsVTD", false);
@@ -109,9 +109,14 @@ public class TestJava {
         obj3.put("AppSource", properties.AppSource);
         // obj3.put("OrderDateTime", "/Date(" + System.currentTimeMillis() + ")/");
         // obj3.put("ValidTillDate", "/Date(" + System.currentTimeMillis() + ")/");
-
+        apis.setJWTToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUwOTE3NjAwIiwicm9sZSI6Ildqa1ZXM0JQZW5heEFENDZxNURTeEJFQ3F1SkZFdm5ZIiwiU3RhdGUiOiIwZGIyYmQ1ZS02ZmIxLTQwODYtOTc3Ny1hMWYyZTExZTBhMWIiLCJuYmYiOjE3MDg0MDc5NzIsImV4cCI6MTcwODQwODAzMiwiaWF0IjoxNzA4NDA3OTcyfQ.5MzPKQNbJfMNRgz2M2v3ga435XDX1jubY50NYtmfMt8");
         // System.out.println("\n JSON OBJ >> " + obj3.toJSONString());
-        Response response = apis.placeOrderRequest(obj3);
+        Response response = null;
+        try {
+             response = apis.placeOrderRequest(obj3);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         String resp = response.body().string();
         System.out.println("\n Response =========>> " + resp);
 

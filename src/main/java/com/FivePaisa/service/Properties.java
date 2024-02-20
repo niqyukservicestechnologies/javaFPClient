@@ -28,11 +28,11 @@ public class Properties {
 	public String orderBook = "5POrdBkV2";
 
 	public String netPositionNetWise = "5PNPNWV1";
-	public String clientcode = "Your client code";
-	public int AppSource = 11033;// Your App source;
+	public String clientcode = "51447797";
+	public int AppSource = 19184;// Your App source;
 
 	public String remoteIpAddress = "192.0.0.0";
-	public String machineID = "039377 ";
+	public String machineID = "039377";
 
 	public Properties() {
 
