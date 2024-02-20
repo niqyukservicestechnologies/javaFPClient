@@ -32,12 +32,16 @@ public class RestClient {
         this.pr = properties;
     }
 
-    public Response holdingV2(JSONObject requestBody) throws IOException, ParseException {
+    public Response holdingV2(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.HOLDINGS);
     }
 
-    public Response netPositionNetWiseV1(JSONObject requestBody) throws IOException, ParseException {
+    public Response netPositionNetWiseV1(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.POSITIONS);
+    }
+
+    public Response marginV3(JSONObject requestBody) throws IOException {
+        return ac.callPOSTWithAccessToken(requestBody, APITypes.MARGIN);
     }
 
     public Response smoOrderRequest(JSONObject requestBody) throws IOException, ParseException {
@@ -73,9 +77,6 @@ public class RestClient {
         return ac.callPOSTWithAccessToken(requestBody, tradeInformation, pr.tradeInformation, config);
     }
 
-    public Response marginV3(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken(requestBody, margin, pr.margin, config);
-    }
 
     public Response orderBookV2(JSONObject requestBody) throws IOException, ParseException {
         return ac.callPOSTWithAccessToken(requestBody, orderBook, pr.orderBook, config);
