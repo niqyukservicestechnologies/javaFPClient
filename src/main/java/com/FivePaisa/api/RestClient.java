@@ -44,11 +44,11 @@ public class RestClient {
     }
 
     public Response holdingV2(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, APITypes.HOLDINGS);
+        return ac.callPOSTWithAccessToken(requestBody, APITypes.HOLDINGS);
     }
 
     public Response netPositionNetWiseV1(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, APITypes.POSITIONS);
+        return ac.callPOSTWithAccessToken(requestBody, APITypes.POSITIONS);
     }
 
     public String loginCheck(JSONObject requestBody) throws IOException, ParseException {
@@ -56,11 +56,11 @@ public class RestClient {
     }
 
     public Response smoOrderRequest(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, smoOrderRequest, pr.requestCodeSmoOrderReq, config);
+        return ac.callPOSTWithAccessToken(requestBody, smoOrderRequest, pr.requestCodeSmoOrderReq, config);
     }
 
     public Response modifySmoOrder(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, modifySmoOrder, pr.requestCodeModifySmoOrder, config);
+        return ac.callPOSTWithAccessToken(requestBody, modifySmoOrder, pr.requestCodeModifySmoOrder, config);
     }
 
     public String getTotpSession(String clientCode, String totp, String pin) throws IOException, ParseException {
@@ -68,36 +68,36 @@ public class RestClient {
     }
 
     public Response placeOrderRequest(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, placeOrderRequest, pr.orderRequest, config);
+        return ac.callPOSTWithAccessToken(requestBody, placeOrderRequest, pr.orderRequest, config);
     }
 
     public Response modifyOrderRequest(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, modifyOrderRequest, pr.orderRequest, config);
+        return ac.callPOSTWithAccessToken(requestBody, modifyOrderRequest, pr.orderRequest, config);
     }
 
     public Response cancelOrderRequest(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, cancelOrderRequest, pr.orderRequest, config);
+        return ac.callPOSTWithAccessToken(requestBody, cancelOrderRequest, pr.orderRequest, config);
     }
 
 
     public Response marketFeed(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken((requestBody), marketFeed, pr.marketFeed, config);
+        return ac.callPOSTWithAccessToken((requestBody), marketFeed, pr.marketFeed, config);
     }
 
     public Response orderStatus(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, orderStatus, pr.orderStatus, config);
+        return ac.callPOSTWithAccessToken(requestBody, orderStatus, pr.orderStatus, config);
     }
 
     public Response tradeInformation(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, tradeInformation, pr.tradeInformation, config);
+        return ac.callPOSTWithAccessToken(requestBody, tradeInformation, pr.tradeInformation, config);
     }
 
     public Response marginV3(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, margin, pr.margin, config);
+        return ac.callPOSTWithAccessToken(requestBody, margin, pr.margin, config);
     }
 
     public Response orderBookV2(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callWithAccessToken(requestBody, orderBook, pr.orderBook, config);
+        return ac.callPOSTWithAccessToken(requestBody, orderBook, pr.orderBook, config);
     }
 
     public void setJWTToken(String jwtToken) {

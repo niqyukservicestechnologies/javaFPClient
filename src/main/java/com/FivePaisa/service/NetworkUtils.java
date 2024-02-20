@@ -14,18 +14,17 @@ public class NetworkUtils {
     private static final OkHttpClient client = new OkHttpClient();
     private static final String BASE_URL = "https://example.com/api"; // Replace with your actual base URL
 
-    // Generic network call method
-    public static Response makeRequest(APITypes apiTypes, String verb, RequestBody body, Headers headers) throws IOException {
+    public static Response makeRequest(APITypes apiTypes, String verb, JSONObject requestBody,
+                                       String accessToken, Map<String, String> additionalHeaders) throws IOException {
         Request.Builder builder = new Request.Builder()
                 .url(fetchEndpoint(apiTypes))
-                .headers(headers);
-        try (Response response = client.newCall(switch (verb) {
-            case "POST" -> builder.post(body).build();
-            case "GET" -> builder.get().build();
-            default -> throw new IllegalStateException("Unexpected value: " + verb);
-        }).execute()) {
-            System.out.println("HERE");
-            System.out.println("RESPONSE HERE - " + response.code() + " " + response.body().string());
+                .headers(getHeaders(accessToken, additionalHeaders));
+        try (Response response = client.newCall((switch (verb) {
+                    case "POST" -> builder.post(NetworkUtils.generatePayload(requestBody));
+                    case "GET" -> builder.get();
+                    default -> throw new IllegalStateException("Unexpected value: " + verb);
+                }).build())
+                .execute()) {
             return response;
         }
     }
