@@ -2,10 +2,13 @@ package com.FivePaisa.service;
 
 import com.FivePaisa.config.AppConfig;
 import com.FivePaisa.util.ServerDetails;
+import lombok.Setter;
 import okhttp3.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +17,11 @@ import java.util.Collections;
 import java.util.Map;
 
 public class ApiCalls {
+
+    private static final Logger aLogger = LoggerFactory.getLogger(ApiCalls.class);
+
     public final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    @Setter
     String jwtToken;
     String apiUrl = "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/";
 
@@ -115,11 +122,8 @@ public class ApiCalls {
         return requestBody;
     }
 
-    public void setJwtToken(String jwtToken) {
-        this.jwtToken = jwtToken;
-    }
-
     public Response callPOSTWithAccessToken(JSONObject requestBody, APITypes apiTypes) throws IOException {
+        aLogger.info("Invoking Five Paisa API : {} ", apiTypes);
         return callWithAccessToken(requestBody, apiTypes, Collections.emptyMap(), "POST");
     }
 
