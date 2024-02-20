@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @UtilityClass
 public class NetworkUtils {
@@ -32,8 +33,8 @@ public class NetworkUtils {
                 }).build())
                 .execute()) {
             if (!List.of(200,201,202).contains(response.code()))
-                throw new IOException("Bad");
-            return response.body().string();
+                throw new IOException("Non 2XX Response " + Objects.requireNonNull(response.body()).string());
+            return Objects.requireNonNull(response.body()).string();
         }
     }
 
