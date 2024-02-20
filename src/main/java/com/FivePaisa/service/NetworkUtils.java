@@ -58,6 +58,7 @@ public class NetworkUtils {
             case ORDER_BOOK -> "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V3/OrderBook";
             case SQUARE_OFF -> "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/SquareOffAll";
             case TRADE_BOOK -> "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/TradeBook";
+            case PLACE_ORDER -> "https://openapi.5paisa.com/VendorsAPI/Service1.svc/V1/PlaceOrderRequest";
             default -> "/";
         };
     }
