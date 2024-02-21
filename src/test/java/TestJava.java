@@ -31,7 +31,7 @@ public class TestJava {
         config.setKey("WjkVW3BPenaxAD46q5DSxBECquJFEvnY");// eg ABCDEFGHIJKLMNOPQURSTUVWXYZANCDEF
         config.setUserId("OipjgKOd03r");
         config.setPassword("gcwjZlmPbUG");// eg. ABCDEFGHIJK
-        config.setLoginId("51447797");// eg 12345678
+        config.setClientCode("51447797");// eg 12345678
         properties.setClientcode("51447797");// eg 12345678
     }
 
