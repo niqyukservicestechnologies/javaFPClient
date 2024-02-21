@@ -110,7 +110,7 @@ public class ApiCalls {
         requestHead.put("appVer", config.getAppVer());
         requestHead.put("appName", config.getAppName());
         requestHead.put("osName", config.getOsName());
-        requestHead.put("LoginId", config.getLoginId());
+        requestHead.put("LoginId", config.getClientCode());
         // requestHead.put("password",pw);
         return requestHead;
     }
