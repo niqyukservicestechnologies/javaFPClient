@@ -27,7 +27,7 @@ public class ApiCalls {
 
     JSONParser parser = new JSONParser();
 
-    public Response callPOSTWithAccessToken(JSONObject requestBody, String url, String rc, AppConfig config)
+    public Response callPOSTWithAccessToken2(JSONObject requestBody, String url, String rc, AppConfig config)
             throws IOException, ParseException {
         JSONObject body = new JSONObject();
         JSONObject OrderStatusJson = (JSONObject) requestBody;

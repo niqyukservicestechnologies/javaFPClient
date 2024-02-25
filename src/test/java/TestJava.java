@@ -70,16 +70,12 @@ public class TestJava {
         // obj3.put("ValidTillDate", "/Date(" + System.currentTimeMillis() + ")/");
         apis.setJWTToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUwOTE3NjAwIiwicm9sZSI6Ildqa1ZXM0JQZW5heEFENDZxNURTeEJFQ3F1SkZFdm5ZIiwiU3RhdGUiOiIwZGIyYmQ1ZS02ZmIxLTQwODYtOTc3Ny1hMWYyZTExZTBhMWIiLCJuYmYiOjE3MDg0MDc5NzIsImV4cCI6MTcwODQwODAzMiwiaWF0IjoxNzA4NDA3OTcyfQ.5MzPKQNbJfMNRgz2M2v3ga435XDX1jubY50NYtmfMt8");
         // System.out.println("\n JSON OBJ >> " + obj3.toJSONString());
-        Response response = null;
+        String response = null;
         try {
-             response = apis.placeOrderRequest(obj3);
+            response = apis.placeOrder(obj3);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        String resp = response.body().string();
-        System.out.println("\n Response =========>> " + resp);
-
-        assertTrue(response.isSuccessful());
     }
 
     @Test

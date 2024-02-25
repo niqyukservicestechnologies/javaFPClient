@@ -50,37 +50,38 @@ public class RestClient {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.TRADE_BOOK);
     }
 
+    public String placeOrder(JSONObject requestBody) throws IOException {
+        return ac.callPOSTWithAccessToken(requestBody, APITypes.PLACE_ORDER);
+    }
+
+
     public String orderBook(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.ORDER_BOOK);
     }
 
     public Response smoOrderRequest(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken(requestBody, smoOrderRequest, pr.requestCodeSmoOrderReq, config);
+        return ac.callPOSTWithAccessToken2(requestBody, smoOrderRequest, pr.requestCodeSmoOrderReq, config);
     }
 
     public Response modifySmoOrder(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken(requestBody, modifySmoOrder, pr.requestCodeModifySmoOrder, config);
-    }
-
-    public Response placeOrderRequest(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken(requestBody, placeOrderRequest, pr.orderRequest, config);
+        return ac.callPOSTWithAccessToken2(requestBody, modifySmoOrder, pr.requestCodeModifySmoOrder, config);
     }
 
     public Response modifyOrderRequest(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken(requestBody, modifyOrderRequest, pr.orderRequest, config);
+        return ac.callPOSTWithAccessToken2(requestBody, modifyOrderRequest, pr.orderRequest, config);
     }
 
     public Response cancelOrderRequest(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken(requestBody, cancelOrderRequest, pr.orderRequest, config);
+        return ac.callPOSTWithAccessToken2(requestBody, cancelOrderRequest, pr.orderRequest, config);
     }
 
 
     public Response marketFeed(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken((requestBody), marketFeed, pr.marketFeed, config);
+        return ac.callPOSTWithAccessToken2((requestBody), marketFeed, pr.marketFeed, config);
     }
 
     public Response orderStatus(JSONObject requestBody) throws IOException, ParseException {
-        return ac.callPOSTWithAccessToken(requestBody, orderStatus, pr.orderStatus, config);
+        return ac.callPOSTWithAccessToken2(requestBody, orderStatus, pr.orderStatus, config);
     }
 
     public void setJWTToken(String jwtToken) {
