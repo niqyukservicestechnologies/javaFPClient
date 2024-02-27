@@ -54,6 +54,10 @@ public class RestClient {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.PLACE_ORDER);
     }
 
+    public String placeBracketOrder(JSONObject requestBody) throws IOException {
+        return ac.callPOSTWithAccessToken(requestBody, APITypes.PLACE_BRACKET_ORDER);
+    }
+
 
     public String orderBook(JSONObject requestBody) throws IOException {
         return ac.callPOSTWithAccessToken(requestBody, APITypes.ORDER_BOOK);

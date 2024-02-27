@@ -8,5 +8,6 @@ public enum APITypes {
     SQUARE_OFF,
     ORDER_BOOK,
     TRADE_BOOK,
-    PLACE_ORDER
+    PLACE_ORDER,
+    PLACE_BRACKET_ORDER,
 }
