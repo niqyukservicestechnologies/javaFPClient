@@ -32,8 +32,8 @@ public class NetworkUtils {
                     default -> throw new IllegalStateException("Unexpected value: " + verb);
                 }).build())
                 .execute()) {
-            if (!List.of(200,201,202).contains(response.code()))
-                throw new IOException("Non 2XX Response " + Objects.requireNonNull(response.body()).string());
+            if (!List.of(200,201,202).contains(response.code())) {
+                throw new IOException(Objects.requireNonNull(response.body()).string());
             return Objects.requireNonNull(response.body()).string();
         }
     }
